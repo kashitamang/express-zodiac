@@ -11,7 +11,7 @@ describe('cats routes', () => {
   });
 
   it('/zodiacs should return a list of zodiacs', async () => {
-    const res = await request(app).get('/cats');
+    const res = await request(app).get('/zodiacs');
     const expected = zodiacs.map((zodiac) => {
       return { id: zodiac.id, name: zodiac.name };
     });
@@ -19,14 +19,14 @@ describe('cats routes', () => {
   });
 
   it('/zodiac/:id should return zodiac detail', async () => {
-    const res = await request(app).get('/zodiac/1');
-    const felix = {
-      id: '1',
-      name: 'aquarius',
-      dates: 'Jan 21 - Feb 19',
-      symbol: 'Water Bearer',
+    const res = await request(app).get('/zodiacs/1');
+    const aquarius = {
+      'id': '1',
+      'name': 'aquarius',
+      'dates': 'Jan 21 - Feb 19',
+      'symbol': 'Water Bearer',
     };
-    expect(res.body).toEqual(felix);
+    expect(res.body).toEqual(aquarius);
   });
 
   afterAll(() => {
